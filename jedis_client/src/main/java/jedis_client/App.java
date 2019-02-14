@@ -22,9 +22,10 @@ public class App
     public void jedisBasic()
     {
         Jedis jedis = null;
+        String value = null;
         try {
             jedis = new Jedis("127.0.0.1", 6379);
-            jedis.get("hello1");
+            value = jedis.get("hello1");
         } catch (Exception e) {
             //TODO: handle exception
             System.out.println(e.getMessage());
@@ -32,5 +33,6 @@ public class App
             if (jedis != null)
                 jedis.close();
         }
+        System.out.println(value);
     }
 }
